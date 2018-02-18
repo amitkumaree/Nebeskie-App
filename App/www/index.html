@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; img-src * data:; font-src * 'unsafe-eval'; style-src * 'self' 'unsafe-inline'; media-src *; script-src * 'unsafe-eval'; connect-src *;">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link href="css/refs/framework7.material.min.css" rel="stylesheet" />
+    <link href="css/refs/framework7.material.colors.min.css" rel="stylesheet" />
+    <link href="css/refs/welcomescreen.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/refs/framework7-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>HomeEarth</title>
+</head>
+<body ng-controller="AppController as vm">
+    <!-- Panels Overlay -->
+    <div class="panel-overlay"></div>
+
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-cover">
+        <div class="content-block">
+            <!--<div class="menu-setting">
+                <a href="#setting" class="close-panel tab-link"></a>
+            </div>-->
+            <div class="menu-user">
+                <a href="#setting" class="close-panel tab-link">
+                    <span>
+                        <img src="images/icon/icon-usr.png" />
+                    </span>
+                    <p>Hi, <text class="insert-name"></text></p>
+                </a>
+            </div>
+            <div class="menu-home">
+                <a href="#dashboard" class="tbl close-panel tab-link">
+                    <div class="tbl-row">
+                        <div class="tbl-cell menu-home-icon">
+                            <img src="images/icon/icon-home-white.png" />
+                        </div>
+                        <div class="tbl-cell menu-home-details" id="insertPanel">
+                            <!--<div class="menu-home-name">Rohan Mithila</div>
+                            <div class="menu-home-count">
+                                <p>4 Rooms</p>
+                                <p>20 Devices</p>
+                            </div>-->
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-home">
+                <a href="#rule" class="tbl close-panel tab-link">
+                    <div class="tbl-row">
+                        <div class="tbl-cell menu-home-icon">
+                            <img src="images/icon/icon-setting.png" />
+                        </div>
+                        <div class="tbl-cell menu-home-details">
+                            <div class="menu-home-name">Rules / Schedular</div>
+                            <div class="menu-home-count">
+                                <p>2 Rules</p>
+                                <!--<p>20 Devices</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-logout">
+                <a class="close-panel" href="">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="views tabs">
+        <div id="dashboard" class="view view-main tab active">
+            <div class="pages navbar-fixed">
+                <div id="dashboard-page" class="page cached navbar-fixed" data-page="dashboard-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="open-panel link icon-only menu-bar"><i class="f7-icons">bars</i></a>
+                            </div>
+                            <div class="center"><p>Dashboard</p></div>
+                            <div class="right"><div class="add-icon">+</div></div>
+                        </div>
+                    </div>
+                    <div class="page-content pull-to-refresh-content">
+                        <div class="pull-to-refresh-layer">
+                            <div class="preloader"></div>
+                            <div class="pull-to-refresh-arrow"></div>
+                        </div>
+                        <div class="dashboard-page-container">
+                            <div class="dashboard-home">
+                                <div class="dashboard-name">
+                                    <a class="dashboard-name-block">
+                                        <img src="images/icon/icon-home.png" />
+                                        <span>Home Name</span>
+                                        <p>Rohan Mithila</p>
+                                    </a>
+                                    <a class="dashboard-name-block">
+                                        <img src="images/icon/icon-rooms.png" />
+                                        <span>Total Rooms</span>
+                                        <p>4 Rooms</p>
+                                    </a>
+                                    <a class="dashboard-name-block">
+                                        <img src="images/icon/icon-device.png" />
+                                        <span>Total Devices</span>
+                                        <p>20 Devices</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="home-page" class="page" data-page="home-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <!--<a href="#" style="font-size: 14px;" data-popup=".popup-login" class="open-popup">
+                                    Login
+                                </a>-->
+                                <a href="#" class="open-panel link icon-only menu-bar"><i class="f7-icons">bars</i></a>
+                                <!--<a href="#" class="back back-icon">Back</a>-->
+                            </div>
+                            <div class="center"><p class="hub-name"></p></div>
+                            <div class="right">
+                                <a href="#" data-popover=".popover-links" class="link open-popover edit-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content pull-to-refresh-content">
+                        <div class="pull-to-refresh-layer">
+                            <div class="preloader"></div>
+                            <div class="pull-to-refresh-arrow"></div>
+                        </div>
+                        <div class="dashboard-welcome">
+                            <div class="dashboard-hello">
+                                <p>Hello!</p>
+                                <p>User</p>
+                                <img src="images/logo.png" />
+                                <span>You don't have home added!</span>
+                            </div>
+                            <div class="dashboard-welcome-plus">
+                                <p>+</p>
+                            </div>
+                        </div>
+                        <div class="dahsboard-home">
+                            <div class="dashboard-name" id="insertheader">
+                                <!--<a class="dashboard-name-block">
+                                    <img src="images/icon/icon-home.png" />
+                                    <span>Home Name</span>
+                                    <p>Rohan Mithila</p>
+                                </a>
+                                <a class="dashboard-name-block">
+                                    <img src="images/icon/icon-rooms.png" />
+                                    <span>Total Rooms</span>
+                                    <p>4 Rooms</p>
+                                </a>
+                                <a class="dashboard-name-block">
+                                    <img src="images/icon/icon-device.png" />
+                                    <span>Total Devices</span>
+                                    <p>20 Devices</p>
+                                </a>-->
+                            </div>
+                        </div>
+
+                        <div class="dashboard-room-bar">
+                            <!--<div id="room-bar" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="">
+                                            <p>Living Room</p>
+                                            <span>5 Devices</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="">
+                                            <p>Family Room</p>
+                                            <span>5 Devices</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="">
+                                            <p>Bedroom 1</p>
+                                            <span>5 Devices</span>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="">
+                                            <p>Bedroom 2</p>
+                                            <span>5 Devices</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div id="device-bar" class="room-accordion">
+                                <div class="list-block accordion-list" id="insertTemplate">
+                                </div>
+                                <!--<div class="device-status swiper-wrapper">
+                                    <div id="" class="list-block swiper-slide">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Tubelight</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox" id="demo-status">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Fan</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Desk Light</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">TV</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Music System</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="" class="list-block swiper-slide">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Tubelight 2</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Fan</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Desk Light</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">TV</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Music System</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="" class="list-block swiper-slide">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Tubelight 3</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Fan</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Desk Light</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">TV</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Music System</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="" class="list-block swiper-slide">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Tubelight 4</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Fan</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Desk Light</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">TV</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-inner">
+                                                        <div class="item-title label">Music System</div>
+                                                        <div class="item-after">
+                                                            <label class="label-switch">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox"></div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edit-home-page" class="page cached" data-page="edit-home-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="back link back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center"><p>Edit Home</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="edit-home-container">
+                            <form class="list-block inputs-list form-container profile-container home-form ajax-submit">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Select Home</div>
+                                                <div class="item-input item-input-field">
+                                                    <select class="input-select" id="insertHome"></select>
+                                                </div>
+                                                <div class="item-input-error-msg">Please select home!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Home Name</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" class="input-text" name="homeName" id="home-edit-name" value="" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid name!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="home-submit">
+                                    <button class="button button-big button-fill button-raised">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div id="edit-room-page" class="page cached" data-page="edit-room-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="back link back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center"><p>Edit Room</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <form class="list-block inputs-list form-container profile-container room-form ajax-submit">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Select Home</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" id="insertHomeRoom">
+
+                                                </select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please select home!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Select Room</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" id="insertRoom"></select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please select room!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Home Name</div>
+                                            <div class="item-input item-input-field">
+                                                <input type="text" class="input-text" name="name" id="room-edit-name" value="" placeholder="" />
+                                            </div>
+                                            <div class="item-input-error-msg">Please enter valid name!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="room-submit">
+                                <button class="button button-big button-fill button-raised">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="edit-device-page" class="page cached" data-page="edit-device-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="back link back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center"><p>Edit Device</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <form class="list-block inputs-list form-container profile-container device-form ajax-submit">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Select Home</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" id="insertHomeDevice"></select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please select home!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Select Room</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" id="insertRoomDevice"></select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please select room!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Select Device</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" id="insertDevice"></select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please select device!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Device Name</div>
+                                            <div class="item-input item-input-field">
+                                                <input type="text" class="input-text" name="deviceName" id="device-edit-name" value="" placeholder="" />
+                                            </div>
+                                            <div class="item-input-error-msg">Please enter valid name!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Device Type</div>
+                                            <div class="item-input item-input-field">
+                                                <select class="input-select" name="deviceType" id="device-edit-type">
+                                                    <option value="fan">Fan</option>
+                                                    <option value="light">Light</option>
+                                                    <option value="ac">AC</option>
+                                                    <option value="tv">TV</option>
+                                                    <option value="music">Music System</option>
+                                                </select>
+                                            </div>
+                                            <div class="item-input-error-msg">Please enter valid name!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="device-submit">
+                                <button class="button button-big button-fill button-raised">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="setting" class="view tab">
+            <div class="pages navbar-fixed">
+                <div id="setting-page" class="page" data-page="setting-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="open-panel link icon-only menu-bar"><i class="f7-icons">bars</i></a>
+                                <!--<a href="#dashboard" class="back-icon back-icon-width tab-link"></a>-->
+                            </div>
+                            <div class="center"><p>Profile</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="setting-sub-ttl">
+                            <p>Users</p>
+                            <p></p>
+                        </div>
+                        <div class="list-block setting-list">
+                            <ul>
+                                <li>
+                                    <a href="#profile-page" class="item-link item-content">
+                                        <div class="item-media">
+                                            <img src="images/icon/icon-people.png" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title insert-name"></div>
+                                            <!--<div class="item-after">admin</div>-->
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="setting-sub-ttl">
+                            <p>Usage Report</p>
+                            <p></p>
+                        </div>
+                        <div class="list-block setting-list setting-rule">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">68 watts have been consumed in this billing cycle</div>
+                                            <div class="item-after">details</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="profile-page" class="page cached" data-page="profile-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="back link icon-only back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center"><p>Profile</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <form class="list-block inputs-list form-container profile-container profile-form ajax-submit">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Full Name</div>
+                                            <div class="item-input item-input-field">
+                                                <input type="text" class="input-text" name="fullName" id="profile-first-name" value="" placeholder="" />
+                                            </div>
+                                            <div class="item-input-error-msg">Please enter valid name!</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Email Address</div>
+                                            <div class="item-input item-input-field">
+                                                <input type="text" class="input-email" name="email" id="profile-email" value="" placeholder="" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title floating-label">Mobile Number</div>
+                                            <div class="item-input item-input-field">
+                                                <input type="number" class="input-mobile" name="mobileNumber" id="profile-mobile" pattern="\d*" value="" placeholder="" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="profile-submit">
+                                <button class="button button-big button-fill button-raised">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rule" class="view tab">
+            <div class="pages navbar-fixed">
+                <div id="rule-page" class="page" data-page="rule-page">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="open-panel link icon-only menu-bar"><i class="f7-icons">bars</i></a>
+                                <!--<a href="#dashboard" class="back-icon back-icon-width tab-link"></a>-->
+                            </div>
+                            <div class="center"><p>Rules</p></div>
+                            <div class="right"><a class="link" href="#rule-add"><div class="add-icon">+</div></a></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <!--<div class="setting-sub-ttl">
+                            <p></p>
+                            <p><a href="#rule-add" class="item-link">Add</a></p>
+                        </div>-->
+                        <div class="list-block setting-list setting-rule">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Turn Off the Lights after 10:00 PM</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Turn Off the Lights after 10:00 PM</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="rule-add" class="page cached" data-page="rule-add">
+                    <div class="navbar navbar-colored">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="link back back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center"><p>New Rule</p></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="profile-container rule-add-container">
+                            <!--<div class="profile-input">
+                                <label>First Name</label>
+                                <input type="text" name="profile-first-name" value="" placeholder="Enter First Name" />
+                            </div>-->
+                            <div class="content-block-title">Select Device / Area</div>
+                            <div class="list-block">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="text" placeholder="tap here" readonly id="picker-dependent">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">Select Status</div>
+                            <div class="list-block">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="text" placeholder="on" readonly id="picker-status">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">Select Time</div>
+                            <div class="list-block">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="text" placeholder="select time" readonly id="picker-time">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="profile-submit">
+                                <button class="button button-fill button-raised">Create Rule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup popup-login">
+        <div id="login" class="view">
+            <div class="pages navbar-fixed">
+                <div id="login-page" class="page" data-page="login">
+                    <div class="navbar navbar-transparent">
+                        <div class="navbar-inner" data-page="login">
+                            <div class="left"></div>
+                            <div class="center"></div>
+                            <div class="right"><!--<a href="#" class="close-popup">Close</a>--></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="login-container">
+                            <div class="login-logo">
+                                <h2>Earth Home</h2>
+                                <img src="images/logo.jpg" />
+                            </div>
+                            <form class="list-block inputs-list form-container login-form ajax-submit">
+                                <div class="error-msg"></div>
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Email</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" name="email" class="input-username" id="login-email" placeholder="">
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid email!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Password</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" name="password" class="input-password" id="login-pass" placeholder="">
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter atleast 8 digit password!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-submit login-submit">
+                                    <button class="button button-fill button-raised">Login</button>
+                                </div>
+                                <div class="login-link">
+                                    <a href="#register" class="link">Register User</a>
+                                    <a href="#forgot" class="link">Forgot Password</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="register-page" class="page cached" data-page="register">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="" class="link back back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center">Register</div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="register-container">
+                            <form class="list-block inputs-list form-container register-form ajax-submit">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Full Name</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" class="input-text" name="fullName" id="register-firstname" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid name!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--<li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Last Name</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" class="input-text" name="lastname" id="register-lastname" placeholder="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Email Address</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="email" class="input-email" name="email" id="register-email" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid email!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Mobile Number</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="number" class="input-mobile" name="mobileNumber" id="register-mobile" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid mobile number!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Password</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" class="input-password" name="password" id="register-pass" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter atleast 8 digit password!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Confirmed Password</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" class="input-cnfmpassword" name="" id="register-confirmpass" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg2">Passwords do not match!</div>
+                                                <div class="item-input-error-msg">Please enter valid password!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Home Key</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" class="input-text" name="hubName" id="register-homekey" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid home key!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="error-msg"></div>
+                                <div class="form-submit register-submit">
+                                    <button class="button button-fill button-raised">Create Account</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="verify-container">
+                            <form class="list-block inputs-list form-container verify-form ajax-submit">
+                                <div class="forgot-text">
+                                    <p>Enter the code we have sent you on your email.</p>
+                                </div>
+                                <div class="error-msg"></div>
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Code</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="number" name="code" class="input-text" id="verify-number" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid code!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-submit verify-submit">
+                                    <button class="button button-fill button-raised">Submit</button>
+                                    <div class="button button-fill button-raised">Resend Code</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="forgot-page" class="page cached" data-page="forgot">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="" class="link back back-icon back-icon-width"></a>
+                            </div>
+                            <div class="center">Forgot Password</div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="forgot-container">
+                            <form class="list-block inputs-list form-container forgot-form ajax-submit">
+                                <div class="error-msg"></div>
+                                <div class="forgot-text">
+                                    <p>Enter the Email address associated with you home and we will mail you a Reset OTP.</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Email Address</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="email" name="email" class="input-email" id="forgot-email" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid email!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-submit forgot-submit">
+                                    <button class="button button-fill button-raised">Send Reset Password Link</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="forgot-verify-container">
+                            <form class="list-block inputs-list form-container forgot-verify-form ajax-submit">
+                                <div class="forgot-text">
+                                    <p>Enter the code we have sent you on your email.</p>
+                                </div>
+                                <div class="error-msg"></div>
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Code</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="number" name="confirmationCode" class="input-text" id="forgot-verify-number" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid code!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Password</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" name="password" class="input-password" id="forgot-verify-password" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg">Please enter valid password!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Confirm Password</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" name="" class="input-cnfmpassword" id="forgot-verify-cnfmpassword" placeholder="" />
+                                                </div>
+                                                <div class="item-input-error-msg2">Passwords do not match!</div>
+                                                <div class="item-input-error-msg">Please enter valid password!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-submit forgot-verify-submit">
+                                    <button class="button button-fill button-raised">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--<div id="verify-page" class="page cached" data-page="verify">
+                    <div class="navbar navbar-transparent">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="" class="back back-icon">Login</a>
+                            </div>
+                            <div class="center"></div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="forgot-container">
+                            <form class="list-block inputs-list ">
+                                <div class="forgot-text">
+                                    <p>Enter the code we have sent you on your mobile number.</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title floating-label">Code</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="number" name="code" id="" placeholder="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="form-submit verify-submit">
+                                    <P class="button button-fill button-raised">Submit</P>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Popover -->
+    <div class="popover popover-links">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="#" class="list-button item-link link edit-home close-popover">Edit Home</a></li>
+                    <li><a href="#" class="list-button item-link link edit-room close-popover">Edit Room</a></li>
+                    <li><a href="#" class="list-button item-link link edit-device close-popover">Edit Device</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template7 -->
+    <script type="text/template7" id="roomsTemplate">
+        <ul class="room-accordion-ul">
+            {{#each hub.rooms}}
+            <li class="accordion-item">
+                <a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                        <div class="item-title">{{name}} <span>({{devices.length}} Devices)</span></div>
+                    </div>
+                </a>
+                <div class="accordion-item-content">
+                    <div class="content-block">
+                        <div class="device-status">
+                            <div class="list-block">
+                                <ul>
+                                    <!--<li load="{{id}}" loadName="{{name}}">
+                                        Edit Room
+                                    </li>-->
+                                    {{#devices}}
+                                    <li load="{{id}}" loadName="{{deviceName}}">
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <img src="images/icon/{{deviceType}}.png" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">{{deviceName}}</div>
+                                                <div class="item-after">
+                                                    <label class="label-switch">
+                                                        <input type="checkbox" id="{{loadName}}">
+                                                        <div class="checkbox"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/devices}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script type="text/template7" id="headerTemplate">
+        <a class="dashboard-name-block" id="dashboard-name-home" hub="{{hub.id}}" hubName="{{hub.homeName}}">
+            <img src="images/icon/icon-home.png" />
+            <span>Home</span>
+            <p>{{hub.homeName}}</p>
+        </a>
+        <a class="dashboard-name-block">
+            <img src="images/icon/icon-rooms.png" />
+            <span>Rooms</span>
+            <p>{{hub.rooms.length}}</p>
+        </a>
+        <a class="dashboard-name-block">
+            <img src="images/icon/icon-device.png" />
+            <span>Total Devices</span>
+            <p>3</p>
+        </a>
+    </script>
+    <script type="text/template7" id="nameTemplate">
+        {{fullName}}
+    </script>
+    <script type="text/template7" id="panelTemplate">
+        <div class="menu-home-name">{{hub.homeName}}</div>
+        <div class="menu-home-count">
+            <p>{{hub.rooms.length}} Rooms</p>
+            <!--<p>20 Devices</p>-->
+        </div>
+    </script>
+    <script type="text/template7" id="homeList">
+        <option value="0" selected disabled>Please Select Home</option>
+        <option value="{{hub.id}}">{{hub.homeName}}</option>
+    </script>
+    <script type="text/template7" id="roomList">
+        <option value="0" selected disabled>Please Select Room</option>
+        {{#each hub.rooms}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </script>
+    <script type="text/template7" id="deviceList">
+        <option value="0" selected disabled>Please Select Device</option>
+        {{#devices}}
+        <option value="{{id}}">{{deviceName}}</option>
+        {{/devices}}
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/refs/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/refs/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/refs/moment.min.js"></script>
+    <script type="text/javascript" src="scripts/refs/mqttws31.js"></script>
+    <script type="text/javascript" src="scripts/refs/sha256.js"></script>
+    <script type="text/javascript" src="scripts/refs/hmac-sha256.js"></script>
+    <script type="text/javascript" src="scripts/refs/framework7.min.js"></script>
+    <script type="text/javascript" src="scripts/refs/welcomescreen.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

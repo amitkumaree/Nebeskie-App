@@ -1,0 +1,54 @@
+﻿
+//Color
+$themeBackground: #FAFAFA;
+$colorTheme: #FF8534;
+$colorDarkBlue: #00587e;
+$colorLightBlue: #386b95;
+$colorBlue: #0F98C3;
+$colorVoilet: #484065;
+$colorYellow: #BDD631;
+$colorGreen: #7DC244; 
+
+
+$color3: #333;
+$color5: #555;
+$color9: #999;
+$colorA: #AAA;
+$colorC: #CCC;
+$colorD: #DDD;
+$colorE: #EEE;
+$colorF: #FFF;
+
+$orange: #ffb756;
+$green: #74d461;
+$yellow: #fde355; 
+$red: #ff6161;
+
+//Font Faimily
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../www/css/refs/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../www/css/refs/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../www/css/refs/Roboto-Bold.ttf') format('truetype');
+}
+
+/*$fontRegular: 'SF-UI-Text-Regular';
+$fontMedium : 'SF-UI-Text-Medium';
+$fontSemiBold: 'SF-UI-Text-Semibold';*/
+
+$fontRegular: 'Roboto-Regular';
+$fontMedium: 'Roboto-Medium';
+$fontSemiBold: 'Roboto-Bold';
+
+//Font-size
+$smallFont: 14px;
+$sMediumFont: 16px;
+$mediumFont: 18px;
+$largeFont: 20px;
